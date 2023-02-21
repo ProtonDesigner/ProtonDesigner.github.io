@@ -1,0 +1,66 @@
+---
+import Layout from "./Layout.astro"
+import DocSidebar from "../components/DocSidebar.astro"
+const {frontmatter} = Astro.props
+
+const { tags } = frontmatter
+let tagsString = ""
+let isFirst = true
+tags.forEach((tag: string) => {
+    tagsString = isFirst ? (tagsString + `${tag}`) : (tagsString + `, ${tag}`)
+    isFirst = false
+})
+
+const allPosts = await Astro.glob("../pages/docs/*.mdx")
+---
+
+<Layout title={frontmatter.title}>
+    <!-- <main> -->
+    <div class="mkd">
+        <div class="metadata">
+            <h1>{frontmatter.title}</h1>
+            <p>Published on {frontmatter.pubDate.slice(0, 10)}, Updated: {frontmatter.update.slice(0, 10)}</p>
+            <h3><em>{frontmatter.description}</em></h3>
+            <p>Written by {frontmatter.author}</p>
+            <p class="tags">Tags: {tagsString}</p>
+        </div>
+        <DocSidebar items={allPosts} currentName={frontmatter.title} />
+        <br/>
+        <div class="sep" />
+        <br/>
+        <div class="content">
+            <slot />
+        </div>
+    </div>
+    <!-- </main> -->
+</Layout>
+<style>
+    :root {
+        --sidebar: 200px;
+        --navbar: 70px;
+    }
+
+    .metadata {
+        text-align: center;
+    }
+
+    img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .sep {
+        width: calc(100vw - var(--sidebar) - 45px);
+        height: 1px;
+        background-color: grey;
+    }
+
+    .mkd {
+        /* position: absolute; */
+        margin-top: 15px;
+        margin-left: calc(var(--sidebar) + 15px);
+        width: calc(100% - var(--sidebar) - 15px);
+        height: calc(100% - var(--navbar) - 5px);
+        /* width: 100%; */
+    }
+</style>

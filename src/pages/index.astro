@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="title__section">
+		<img src="/logo.png" />
+		<h1>Proton Designer</h1>
+		<p>App builder and designer</p>
+	</div>
+	<section id="download">
+		<h2>Download Proton</h2>
+		<a href="https://github.com/ProtonDesigner/core/releases/latest">Latest GitHub Release</a>
+		<a href="https://github.com/ProtonDesigner/core/releases/">Archives</a>
+	</section>
+	<section data-direction="left-right">
+		<h2>Easily create UIs</h2>
+		<p>Proton Designer enables you to focus on your app's functionality.</p>
+	</section>
+	<section data-direction="right-left">
+		<h2>Always in development</h2>
+		<p>
+			Development of Proton Designer is ongoing. The fact that we're still in the beta stage only accelerates this.
+		</p>
+	</section>
+	<section data-direction="left-right">
+		<h2>Open Source</h2>
+		<p>
+			Proton Designer is fully FOSS software (Free and Open Source). This ensures safety and peace of mind among users.
+		</p>
+	</section>
+	<section data-direction="right-left">
+		<h2>"Active" Community</h2>
+		<p>
+			Proton is still a very new, growing community of users. Check out our socials below!
+		</p>
+	</section>
+</Layout>
+
+<style lang="scss">
+	.title__section {
+		img {
+			width: 150px;
+			height: 150px;
+			box-shadow: 0px 0px 51px 0px rgba(0,0,0,0.75);
+			-webkit-box-shadow: 0px 0px 51px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 0px 51px 0px rgba(0,0,0,0.75);
+			border-radius: 2rem;
+		}
+
+		$padding: 50px;
+		text-align: center;
+		padding: $padding;
+		background-color: rgba(0,0,0,0.5);
+		width: calc(100vw - ($padding * 2));
+	}
+
+	section {
+		padding: 20px;
+
+		&[data-direction="left-right"] {
+			text-align: left;
+		}
+		&[data-direction="right-left"] {
+			text-align: right;
+		}
+
+		&#download {
+			text-align: center;
+
+			a {
+				font-weight: 500;
+				text-decoration: none;
+				color: black;
+
+				&::after {
+					content: "";
+					$width: 10px;
+					margin-left: calc($width / 2);
+					margin-right: calc($width / 2);
+				}
+			}
+		}
+	}
+</style>

@@ -1,0 +1,71 @@
+---
+import type { MarkdownInstance, MDXInstance } from 'astro';
+
+export interface Props {
+    items: MarkdownInstance<Record<string, any>>[] | MDXInstance<Record<string, any>>[]
+    currentName: number
+}
+
+const { items, currentName } = Astro.props
+const isSelected = (item: MarkdownInstance<Record<string, any>> | MDXInstance<Record<string, any>>) => item.frontmatter.title == currentName
+---
+
+<div class="sidebar">
+    {items.map((item: any) => {
+        return <sidebar-element
+            class={`item ${isSelected(item) ? "selected" : ""}`}
+            data-url={item.url}
+        >
+            {item.frontmatter.title}
+        </sidebar-element>
+    })}
+</div>
+
+<script>
+    class Item extends HTMLElement {
+        constructor() {
+            super()
+
+            const { url } = this.dataset
+            this.addEventListener("click", () => {
+                window.location.href = url || "/"
+            })
+        }
+    }
+
+    customElements.define("sidebar-element", Item)
+</script>
+
+<style lang="scss">
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: white;
+        height: 100%;
+        width: 200px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        $navbar: 70px;
+        top: $navbar;
+
+        .item {
+            padding: 10px;
+            cursor: pointer;
+
+            display: block;
+            width: calc(100% - 20px);
+
+            &.selected {
+                background-color: grey;
+            }
+
+            &:hover {
+                background-color: hsl(0, 0%, 85%);
+            }
+        }
+    }
+</style>
