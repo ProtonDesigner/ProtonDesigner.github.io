@@ -1,6 +1,13 @@
 ---
 import Layout from "./Layout.astro"
 import DocSidebar from "../components/DocSidebar.astro"
+import type { MarkdownInstance, MDXInstance } from "astro"
+
+export interface Props {
+	frontmatter: any
+    posts: Promise<MDXInstance<Record<string, any>>[]> | Promise<MarkdownInstance<Record<string, any>>[]>
+}
+
 const {frontmatter} = Astro.props
 
 const { tags } = frontmatter
@@ -11,7 +18,7 @@ tags.forEach((tag: string) => {
     isFirst = false
 })
 
-const allPosts = await Astro.glob("../pages/docs/*.mdx")
+const allPosts = await Astro.props.posts
 ---
 
 <Layout title={frontmatter.title}>

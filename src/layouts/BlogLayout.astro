@@ -1,0 +1,9 @@
+---
+import MarkdownLayout from "./MarkdownLayout.astro";
+
+const {frontmatter} = Astro.props
+---
+
+<MarkdownLayout posts={Astro.glob("../pages/blogs/*.mdx")} frontmatter={frontmatter}>
+    <slot />
+</MarkdownLayout>
