@@ -4,41 +4,49 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<div class="title__section">
-		<img src="/logo.png" />
-		<h1>Proton Designer</h1>
-		<p>App builder and designer</p>
-	</div>
-	<section id="download">
-		<h2>Download Proton</h2>
-		<a href="https://github.com/ProtonDesigner/core/releases/latest">Latest GitHub Release</a>
-		<a href="https://github.com/ProtonDesigner/core/releases/">Archives</a>
-	</section>
-	<section data-direction="left-right">
-		<h2>Easily create UIs</h2>
-		<p>Proton Designer enables you to focus on your app's functionality.</p>
-	</section>
-	<section data-direction="right-left">
-		<h2>Always in development</h2>
-		<p>
-			Development of Proton Designer is ongoing. The fact that we're still in the beta stage only accelerates this.
-		</p>
-	</section>
-	<section data-direction="left-right">
-		<h2>Open Source</h2>
-		<p>
-			Proton Designer is fully FOSS software (Free and Open Source). This ensures safety and peace of mind among users.
-		</p>
-	</section>
-	<section data-direction="right-left">
-		<h2>"Active" Community</h2>
-		<p>
-			Proton is still a very new, growing community of users. Check out our socials below!
-		</p>
-	</section>
+	<body>
+		<div class="title__section">
+			<img src="/logo.png" />
+			<h1>Proton Designer</h1>
+			<p>App builder and designer</p>
+		</div>
+		<section id="download">
+			<h2>Download Proton</h2>
+			<a href="https://github.com/ProtonDesigner/core/releases/latest">Latest GitHub Release</a>
+			<a href="https://github.com/ProtonDesigner/core/releases/">Archives</a>
+		</section>
+		<section data-direction="left-right">
+			<h2>Easily create UIs</h2>
+			<p>Proton Designer enables you to focus on your app's functionality.</p>
+		</section>
+		<section data-direction="right-left">
+			<h2>Always in development</h2>
+			<p>
+				Development of Proton Designer is ongoing. The fact that we're still in the beta stage only accelerates this.
+			</p>
+		</section>
+		<section data-direction="left-right">
+			<h2>Open Source</h2>
+			<p>
+				Proton Designer is fully FOSS software (Free and Open Source). This ensures safety and peace of mind among users.
+			</p>
+		</section>
+		<section data-direction="right-left">
+			<h2>"Active" Community</h2>
+			<p>
+				Proton is still a very new, growing community of users. Check out our socials below!
+			</p>
+		</section>
+	</body>
 </Layout>
 
+
 <style lang="scss">
+	body {
+		-webkit-user-select: none; /* Safari */
+		-ms-user-select: none; /* IE 10 and IE 11 */
+		user-select: none; /* Standard syntax */
+	}
 	.title__section {
 		img {
 			width: 150px;
