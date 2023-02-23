@@ -24,3 +24,9 @@ yarn build
 # Connect with us
 
 If you would like to connect with the Proton Designer team and contributors, make sure to join our discord server at: https://discord.gg/xvACqqYDer.
+
+
+
+
+
+Powered by [Astro](https://astro.build)
