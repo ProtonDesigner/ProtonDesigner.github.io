@@ -19,9 +19,6 @@ yarn dev
 
 This will start the development server on `localhost:3000` and hot reload the changes.
 
-Alternatively, you can use [GitPod.io](https://gitpod.io) on the web and develop the website!
-
-
 ## Building
 
 To build the website, run the following command:
@@ -29,7 +26,7 @@ To build the website, run the following command:
 yarn build
 ```
 
-This will generate a production-ready build of the website in the `out` directory.
+This will generate a production-ready build of the website in the `dist` directory.
 
 ## Connect with us
 
