@@ -2,6 +2,7 @@
 import MarkdownLayout from "./MarkdownLayout.astro";
 
 const {frontmatter} = Astro.props
+console.log("hello")
 ---
 
 <MarkdownLayout posts={Astro.glob("../pages/docs/*.mdx")} frontmatter={frontmatter}>

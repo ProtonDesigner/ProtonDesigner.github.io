@@ -11,7 +11,7 @@ const isSelected = (item: MarkdownInstance<Record<string, any>> | MDXInstance<Re
 ---
 
 <div class="sidebar">
-    {items.map((item: any) => {
+    {items && items.map((item: any) => {
         return <sidebar-element
             class={`item ${isSelected(item) ? "selected" : ""}`}
             data-url={item.url}
